@@ -25,6 +25,15 @@ function SectionButtons() {
 	var imagen2
 	var imagen3
 	var imagen4
+	var titulo1
+	var titulo2
+	var titulo3
+	var titulo4
+	var autor1
+	var fecha1
+	var fecha2
+	var fecha3
+	var fecha4
 
 	const didMount = async () => {
 		await fetch(`http://localhost:4000/post`, {
@@ -68,53 +77,48 @@ function SectionButtons() {
 		<>{respPost.map(function (post, index) {
 			if (index === 0) {
 				imagen1 = post.imagen
+				titulo1 = post.titulo
+				autor1 = post.autor
+				fecha1 = post.fecha
 			} else if (index === 1) {
 				imagen2 = post.imagen
+				titulo2 = post.titulo
+				fecha2 = post.fecha
 			} else if (index === 2) {
 				imagen3 = post.imagen
+				titulo3 = post.titulo
+				fecha3 = post.fecha
 			} else if (index === 3) {
 				imagen4 = post.imagen
+				titulo4 = post.titulo
+				fecha4 = post.fecha
 			}
 		})}
 			<div className="section section-buttons">
 				<Container>
 					<div id="buttons">
-						<div className="title">
-							<div className="contenedor-imagen">
-								<div className='imagenCover' />
-								<img src={imagen2} alt='...' className='imagen-blog' />
-								<h4 className='tituloPost'>Título Post 1</h4>
-							</div>
-						</div>
 						<Row>
-							<Col md="8">
-								<Button color="info" type="button">
-									Default
-                </Button>
-								<Button className="btn-round ml-1" color="info" type="button">
-									Round
-                </Button>
-								<Button className="btn-round ml-1" color="info" type="button">
-									<i className="fa fa-heart mr-1" />
-									With Icon
-                </Button>
-								<Button
-									className="btn-just-icon ml-1"
-									color="info"
-									type="button"
-								>
-									<i className="fa fa-heart" />
-								</Button>
-								<Button className="btn-link ml-1" color="info" type="button">
-									Simple
-                </Button>
-							</Col>
+							<div className="title">
+								<div className="contenedor-imagen">
+									<div className='imagenCover' />
+									<img src={imagen2} alt='...' className='imagen-blog' />
+									<h4 className='tituloPost'>{titulo2}</h4>
+								</div>
+								<h3 className='tituloExtPost'><strong>{titulo2}</strong> by {autor1}</h3>
+								<h6 className='fechaPost'>{fecha2}</h6>
+							</div>
+							<br />
+							<div className="title">
+								<div className="contenedor-imagen2">
+									<div className='imagenCover2' />
+									<img src={imagen3} alt='...' className='imagen-blog2' />
+									<h4 className='tituloPost2'>{titulo3}</h4>
+								</div>
+								<h3 className='tituloExtPost2'><strong>{titulo3}</strong> by {autor1}</h3>
+								<h6 className='fechaPost2'>{fecha3}</h6>
+							</div>
 						</Row>
-						<div className="title">
-							<h3>
-								<small>Pick your size</small>
-							</h3>
-						</div>
+{/* 
 						<Row>
 							<Col md="8">
 								<Button
@@ -133,13 +137,13 @@ function SectionButtons() {
 									Large
                 </Button>
 							</Col>
-						</Row>
-						<div className="title">
+						</Row> */}
+						{/* <div className="title">
 							<h3>
 								<small>Pick your color</small>
 							</h3>
-						</div>
-						<Row>
+						</div> */}
+						{/* <Row>
 							<Col md="8">
 								<Button
 									className="btn-round mr-1"
@@ -198,9 +202,9 @@ function SectionButtons() {
 									Neutral
                 </Button>
 							</Col>
-						</Row>
+						</Row> */}
 						<br />
-						<Row>
+						{/* <Row>
 							<Col md="8">
 								<Button
 									className="btn-round mr-1"
@@ -240,12 +244,12 @@ function SectionButtons() {
 									Neutral
                 </Button>
 							</Col>
-						</Row>
+						</Row> */}
 					</div>
-					<div className="title">
+					{/* <div className="title">
 						<h3>Links</h3>
-					</div>
-					<Row>
+					</div> */}
+					{/* <Row>
 						<Col md="8">
 							<Button
 								className="mr-1"
@@ -304,11 +308,11 @@ function SectionButtons() {
 								Neutral
               </Button>
 						</Col>
-					</Row>
-					<div className="title">
+					</Row> */}
+					{/* <div className="title">
 						<h3>Inputs</h3>
-					</div>
-					<Row>
+					</div> */}
+					{/* <Row>
 						<Col sm="3">
 							<FormGroup>
 								<Input placeholder="Default" type="text" />
@@ -347,7 +351,7 @@ function SectionButtons() {
 								</InputGroupAddon>
 							</InputGroup>
 						</Col>
-					</Row>
+					</Row> */}
 					<br />
 					<Row>
 						<Col lg="3" sm="6">

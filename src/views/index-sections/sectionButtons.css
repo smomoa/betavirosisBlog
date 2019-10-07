@@ -1,10 +1,11 @@
 .imagen-blog{
-    height: 350px;
-    width: 560px;
+    height: 400px;
+    width: 610px;
     cursor: pointer;
     transition: 1s;
     position: absolute;
-    top: 100px
+    top: 50px;
+    left: 100px
 }
 
 .imagen-blog:hover{
@@ -12,7 +13,7 @@
 }
 
 .imagen-blog:hover+.tituloPost{
-    top: 235px;
+    top: 190px;
     opacity: 1
 }
 
@@ -21,18 +22,90 @@
   }
 
   .imagenCover{
-    height: 350px;
-    width: 560px;
+    height: 400px;
+    width: 610px;
     cursor: pointer;
     transition: 1s;
     background: black;
+    position: absolute;
+    top: 50px;
+    left: 100px
 }
 
 .tituloPost{
     color: rgb(255, 255, 255);
     position: absolute;
     top: 450px;
-    left: 297px;
+    left: 320px;
     transition: all 1s;
     opacity: 0
+}
+
+.tituloExtPost{
+    position: absolute;
+    top: 430px;
+    left: 100px
+}
+
+.fechaPost{
+    position: absolute;
+    top: 480px;
+    left: 100px
+}
+
+/*-----------------------------------------------------------------------------*/
+
+.imagen-blog2{
+    height: 400px;
+    width: 610px;
+    cursor: pointer;
+    transition: 1s;
+    position: absolute;
+    top: 50px;
+    right: 100px
+}
+
+.imagen-blog2:hover{
+    opacity: 0.3
+}
+
+.imagen-blog2:hover+.tituloPost2{
+    top: 190px;
+    opacity: 1
+}
+
+.contenedor-imagen2 {
+    height: 350px;
+  }
+
+  .imagenCover2{
+    height: 400px;
+    width: 610px;
+    cursor: pointer;
+    transition: 1s;
+    background: black;
+    position: absolute;
+    top: 50px;
+    right: 100px
+}
+
+.tituloPost2{
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 450px;
+    right: 320px;
+    transition: all 1s;
+    opacity: 0
+}
+
+.tituloExtPost2{
+    position: absolute;
+    top: 430px;
+    right: 100px
+}
+
+.fechaPost2{
+    position: absolute;
+    top: 480px;
+    right: 100px
 }
