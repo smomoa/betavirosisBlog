@@ -1,0 +1,38 @@
+.imagen-blog{
+    height: 350px;
+    width: 560px;
+    cursor: pointer;
+    transition: 1s;
+    position: absolute;
+    top: 100px
+}
+
+.imagen-blog:hover{
+    opacity: 0.3
+}
+
+.imagen-blog:hover+.tituloPost{
+    top: 235px;
+    opacity: 1
+}
+
+.contenedor-imagen {
+    height: 350px;
+  }
+
+  .imagenCover{
+    height: 350px;
+    width: 560px;
+    cursor: pointer;
+    transition: 1s;
+    background: black;
+}
+
+.tituloPost{
+    color: rgb(255, 255, 255);
+    position: absolute;
+    top: 450px;
+    left: 297px;
+    transition: all 1s;
+    opacity: 0
+}
