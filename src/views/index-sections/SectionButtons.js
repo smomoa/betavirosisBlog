@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Row, Col, NavLink } from "reactstrap";
 import './sectionButtons.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -8,7 +8,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 
 function SectionButtons() {
 	const [respPost, setRespPost] = React.useState([]);
@@ -29,6 +29,10 @@ function SectionButtons() {
 	var categoria2
 	var categoria3
 	var categoria4
+	var id1
+	var id2
+	var id3
+	var id4
 
 	const cardStyle = makeStyles({
 		card: {
@@ -55,12 +59,12 @@ function SectionButtons() {
 							{titulo1}
 						</Typography>
 						<Typography variant="body2" color="textSecondary" component="p">
-						{categoria1} - {fecha1}
+							{categoria1} - {fecha1}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size="small" color="primary" onClick={() => alert('Entrando al post ' + titulo1)}>
+					<Button size="small" color="primary" href={`/post?id_post=${id1}`}>
 						Leer más
 			  </Button>
 				</CardActions>
@@ -84,12 +88,12 @@ function SectionButtons() {
 							{titulo2}
 						</Typography>
 						<Typography variant="body2" color="textSecondary" component="p">
-						{categoria2} - {fecha2}
+							{categoria2} - {fecha2}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size="small" color="primary" onClick={() => alert('Entrando al post ' + titulo2)}>
+					<Button size="small" color="primary" href={`/post?id_post=${id2}`}>
 						Leer más
 			  </Button>
 				</CardActions>
@@ -113,12 +117,12 @@ function SectionButtons() {
 							{titulo3}
 						</Typography>
 						<Typography variant="body2" color="textSecondary" component="p">
-						{categoria3} - {fecha3}
+							{categoria3} - {fecha3}
 						</Typography>
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size="small" color="primary" onClick={() => alert('Entrando al post ' + titulo3)}>
+					<Button size="small" color="primary" href={`/post?id_post=${id3}`}>
 						Leer más
 			  </Button>
 				</CardActions>
@@ -147,7 +151,7 @@ function SectionButtons() {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-					<Button size="small" color="primary" onClick={() => alert('Entrando al post ' + titulo4)}>
+				<Button size="small" color="primary" href={`/post?id_post=${id4}`}>
 						Leer más
 			  </Button>
 				</CardActions>
@@ -179,21 +183,25 @@ function SectionButtons() {
 				autor1 = post.autor
 				fecha1 = post.fecha
 				categoria1 = post.categoria
+				id1 = post.id_post
 			} else if (index === 1) {
 				imagen2 = post.imagen
 				titulo2 = post.titulo
 				fecha2 = post.fecha
 				categoria2 = post.categoria
+				id2 = post.id_post
 			} else if (index === 2) {
 				imagen3 = post.imagen
 				titulo3 = post.titulo
 				fecha3 = post.fecha
 				categoria3 = post.categoria
+				id3 = post.id_post
 			} else if (index === 3) {
 				imagen4 = post.imagen
 				titulo4 = post.titulo
 				fecha4 = post.fecha
 				categoria4 = post.categoria
+				id4 = post.id_post
 			}
 		})}
 			<div className="section section-buttons">

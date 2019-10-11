@@ -13,6 +13,7 @@ import NucleoIcons from "views/NucleoIcons.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
+import PostPage from 'views/examples/postPage';
 // others
 
 ReactDOM.render(
@@ -30,6 +31,10 @@ ReactDOM.render(
 			<Route
 				path="/quien-escribe"
 				render={props => <ProfilePage {...props} />}
+			/>
+			<Route
+				path="/post"
+				render={props => <PostPage {...props} />}
 			/>
 			<Route
 				path="/register-page"
