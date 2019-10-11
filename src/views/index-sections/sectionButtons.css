@@ -1,6 +1,6 @@
 .imagen-blog{
     height: 400px;
-    width: 610px;
+    width: 500px;
     cursor: pointer;
     transition: 1s;
     position: absolute;
@@ -23,7 +23,7 @@
 
   .imagenCover{
     height: 400px;
-    width: 610px;
+    width: 500px;
     cursor: pointer;
     transition: 1s;
     background: black;
@@ -36,7 +36,7 @@
     color: rgb(255, 255, 255);
     position: absolute;
     top: 450px;
-    left: 320px;
+    left: 270px;
     transition: all 1s;
     opacity: 0
 }
@@ -57,7 +57,7 @@
 
 .imagen-blog2{
     height: 400px;
-    width: 610px;
+    width: 500px;
     cursor: pointer;
     transition: 1s;
     position: absolute;
@@ -80,7 +80,7 @@
 
   .imagenCover2{
     height: 400px;
-    width: 610px;
+    width: 500px;
     cursor: pointer;
     transition: 1s;
     background: black;
@@ -93,7 +93,7 @@
     color: rgb(255, 255, 255);
     position: absolute;
     top: 450px;
-    right: 320px;
+    right: 270px;
     transition: all 1s;
     opacity: 0
 }
