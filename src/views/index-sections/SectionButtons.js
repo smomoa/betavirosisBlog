@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, NavLink } from "reactstrap";
+import { Row, Col, Container } from "reactstrap";
 import './sectionButtons.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -36,7 +36,7 @@ function SectionButtons() {
 
 	const cardStyle = makeStyles({
 		card: {
-			width: '90%',
+			width: '100%',
 		},
 		media: {
 			height: 160,
@@ -151,7 +151,7 @@ function SectionButtons() {
 					</CardContent>
 				</CardActionArea>
 				<CardActions>
-				<Button size="small" color="primary" href={`/post?id_post=${id4}`}>
+					<Button size="small" color="primary" href={`/post?id_post=${id4}`}>
 						Leer más
 			  </Button>
 				</CardActions>
@@ -205,27 +205,29 @@ function SectionButtons() {
 			}
 		})}
 			<div className="section section-buttons">
-				<Row>
-					<Col xs="12" sm="4" lg="3">
-						<Card1 />
-						<hr />
-					</Col>
+				<Container>
+					<Row>
+						<Col xs="12" sm="4" lg="3">
+							<Card1 />
+							<hr />
+						</Col>
 
-					<Col xs="12" sm="6" lg="3">
-						<Card2 />
-						<hr />
-					</Col>
+						<Col xs="12" sm="6" lg="3">
+							<Card2 />
+							<hr />
+						</Col>
 
-					<Col xs="12" sm="6" lg="3">
-						<Card3 />
-						<hr />
-					</Col>
+						<Col xs="12" sm="6" lg="3">
+							<Card3 />
+							<hr />
+						</Col>
 
-					<Col xs="12" sm="6" lg="3">
-						<Card4 />
-						<hr />
-					</Col>
-				</Row>
+						<Col xs="12" sm="6" lg="3">
+							<Card4 />
+							<hr />
+						</Col>
+					</Row>
+				</Container>
 			</div>
 		</>
 	);

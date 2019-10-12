@@ -38,7 +38,7 @@ function IndexHeader() {
 				<div className="filter" />
 				<div className="content-center">
 					<Container>
-						<div className="title-brand">
+						<div className="title-brand" style={{textJustify: 'auto'}}>
 							<h1 className="presentation-title">Betavirosis BLOG</h1>
 							<div className="fog-low">
 								<img alt="..." src={require("assets/img/fog-low.png")} />
