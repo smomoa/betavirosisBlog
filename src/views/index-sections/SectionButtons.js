@@ -175,6 +175,7 @@ function SectionButtons() {
 	React.useEffect(() => {
 		didMount()
 	}, []);
+
 	return (
 		<>{respPost.map(function (post, index) {
 			if (index === 0) {

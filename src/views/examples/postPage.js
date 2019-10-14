@@ -15,9 +15,10 @@ import DemoFooter from "components/Footers/DemoFooter.js";
 
 
 function PostPage() {
-	const [respPost, setRespPost] = React.useState([]);
+	const [infoPost, setInfoPost] = React.useState({});
 	var id_post
 	var image
+	var respPost = {}
 
 	const recibirId = () => {
 		id_post = window.location.search.split('=')[1];
@@ -32,7 +33,7 @@ function PostPage() {
 		}).then(respuesta => {
 			return respuesta.json()
 		}).then(json => {
-			setRespPost(json.respuesta)
+			setInfoPost(json.respuesta[0])
 		})
 	}
 
@@ -58,7 +59,7 @@ function PostPage() {
 				<div
 					style={{
 						backgroundImage:
-							"url(" + require("assets/img/fonpro.jpg") + ")"
+							"url(" + infoPost.imagen + ")"
 					}}
 					className="page-header page-header-xs"
 					data-parallax={true}
@@ -86,24 +87,17 @@ function PostPage() {
 			<div className="section profile-content">
 				<Container>
 					<div className="owner">
-						<div className="avatar">
-							<img
-								alt="..."
-								className="img-circle img-no-padding img-responsive"
-								src={require("assets/img/faces/autor.jpg")}
-							/>
-						</div>
 						<div className="name">
 							<h4 className="title">
-								Betania Velasquez <br />
+								{infoPost.categoria} <br />
 							</h4>
-							<h6 className="description">Estudiante de psicología</h6>
+							<h6 className="description">{infoPost.titulo}</h6>
 						</div>
 					</div>
 					<Row>
 						<Col className="ml-auto mr-auto text-center" md="6">
 							<p>
-								Breve biografía de mi ok?? no creo en nadie becerros malditos.
+								{infoPost.cuerpo}
               </p>
 							<br />
 
