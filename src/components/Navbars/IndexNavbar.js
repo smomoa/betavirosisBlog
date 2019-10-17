@@ -13,7 +13,11 @@ import {
 	Nav,
 	Container,
 	Modal,
-	Input
+	Input,
+	DropdownToggle,
+	DropdownMenu,
+	DropdownItem,
+	UncontrolledDropdown
 } from "reactstrap";
 import Alert from 'react-s-alert';
 import 'react-s-alert/dist/s-alert-default.css';
@@ -57,6 +61,7 @@ function IndexNavbar() {
 			effect: 'stackslide'
 		})
 		setModal(!modal)
+		console.log(resp)
 	}
 
 	const didMount = async () => {
@@ -70,6 +75,7 @@ function IndexNavbar() {
 		}).then(json => {
 			setRespPost(json.respuesta)
 		})
+		console.log(respPost)
 	}
 
 	const toggleNavbarCollapse = () => {
@@ -189,15 +195,42 @@ function IndexNavbar() {
 								¿QUIÉN ESCRIBE?
 							</NavLink>
 						</NavItem>
-						<NavItem>
-							<NavLink
-								data-placement="bottom"
+						<UncontrolledDropdown nav inNavbar>
+							<DropdownToggle
+								aria-expanded={false}
+								aria-haspopup={true}
+								caret
+								color="default"
+								data-toggle="dropdown"
 								href="/index"
-								title="Temas"
+								id="dropdownMenuButton"
+								nav
+								onClick={e => e.preventDefault()}
+								role="button"
 							>
 								TEMAS
-							</NavLink>
-						</NavItem>
+                      </DropdownToggle>
+							<DropdownMenu
+								aria-labelledby="dropdownMenuButton"
+								className="dropdown-info"
+							>
+								<DropdownItem
+									href="/index"
+								>
+									PSICOLOGÍA
+                        </DropdownItem>
+								<DropdownItem
+									href="/index"
+								>
+									CURIOSIDADES
+                        </DropdownItem>
+								<DropdownItem
+									href="/index"
+								>
+									ESTILO DE VIDA
+                        </DropdownItem>
+							</DropdownMenu>
+						</UncontrolledDropdown>
 						<NavItem>
 							<NavLink
 								data-placement="bottom"
