@@ -11,8 +11,9 @@ app.get('/', (req, res) => {
 
 app.get('/suscripcion', (req, res) => {
     var correo = req.query.correo
+    var tema = req.query.tema
     var cuerpo = [
-        [correo]
+        [correo, tema]
     ]
     var connection = mysql.createConnection({
         host: 'localhost',
@@ -21,7 +22,7 @@ app.get('/suscripcion', (req, res) => {
         database: 'blog'
     });
 
-    connection.query('INSERT INTO suscripcion (correo) VALUES ?', [cuerpo], function (error, result) {
+    connection.query('INSERT INTO suscripcion (correo, tema) VALUES ?', [cuerpo], function (error, result) {
         if (error) {
             throw error;
         } else {

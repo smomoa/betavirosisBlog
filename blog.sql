@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2019 a las 00:36:20
+-- Tiempo de generación: 19-10-2019 a las 01:01:33
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.1.32
 
@@ -31,8 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `comentarios` (
   `id_comentario` int(11) NOT NULL,
   `nombre` varchar(500) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `correo` varchar(500) COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `titulo` varchar(500) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `mensaje` varchar(1000) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `id_post` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
@@ -41,13 +39,20 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_comentario`, `nombre`, `correo`, `titulo`, `mensaje`, `id_post`) VALUES
-(1, 'Samuel Bustamante', 'samuel.dhljdm@gmail.com', 'hola', 'me encanta', '2'),
-(2, 'Samuel Bustamante', 'samuel.dhljdm@gmail.com', 'comentario', 'comentario2', '2'),
-(3, 'Samuel Bustamante', 'samuel.dhljdm@gmail.com', 'psicologia', 'comentario del post 1', '1'),
-(4, 'Samuel Bustamante', 'samuel.dhljdm@gmail.com', 'Post prueba 3', 'ajaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '1'),
-(5, 'Samuel Bustamante', 'samueldhljdm@gmail.com', 'critica', 'la foto esta fea', '4'),
-(6, 'Samuel Bustamante', 'samuel.dhljdm@gmail.com', 'hola', 'me ecanta esta puclibaciÃ³n, esta increible', '6');
+INSERT INTO `comentarios` (`id_comentario`, `nombre`, `mensaje`, `id_post`) VALUES
+(1, 'Samuel Bustamante', 'me encanta', '2'),
+(2, 'Samuel Bustamante', 'comentario2', '2'),
+(3, 'Samuel Bustamante', 'Muy buen post, me encanta', '1'),
+(4, 'Samuel Bustamante', 'Me agrada la manera en que defines esto, eres increible', '1'),
+(5, 'Samuel Bustamante', 'la foto esta fea', '4'),
+(6, 'Samuel Bustamante', 'me encanta esta publicación, esta increíble', '2'),
+(8, 'Samuel Bustamante', 'He estado buscando información sobre cometas y Wow! es muy nutritivo leerte', '2'),
+(9, 'Jason Momoa', 'He estado buscando información sobre cometas y Wow! es muy nutritivo leerte', '2'),
+(10, 'Joker', 'He estado buscando informac', '2'),
+(11, 'Aquaman', 'He estado buscando informac', '2'),
+(12, 'Mujer Maravilla', 'Muy bien redactado, me has sorprendido', '2'),
+(13, 'enmanuel bustamante', 'Muy bien redactado, me has sorprendido', '2'),
+(14, 'Jason Momoa', 'Muy bien redactado, me has sorprendido', '2');
 
 -- --------------------------------------------------------
 
@@ -84,18 +89,16 @@ INSERT INTO `post` (`id_post`, `titulo`, `cuerpo`, `categoria`, `imagen`, `autor
 
 CREATE TABLE `suscripcion` (
   `id` int(11) NOT NULL,
-  `correo` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL
+  `correo` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `tema` varchar(100) COLLATE utf8mb4_unicode_520_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Volcado de datos para la tabla `suscripcion`
 --
 
-INSERT INTO `suscripcion` (`id`, `correo`) VALUES
-(1, 'samueldhljdm@gmail.com'),
-(2, 'betavirosis94@gmail.com'),
-(16, 'programador@gnt.pe'),
-(23, 'samuel.dhljdm@gmail.com');
+INSERT INTO `suscripcion` (`id`, `correo`, `tema`) VALUES
+(1, 'samueldhljdm@gmail.com', 'curiosidades');
 
 --
 -- Índices para tablas volcadas
@@ -127,7 +130,7 @@ ALTER TABLE `suscripcion`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `post`
@@ -139,7 +142,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT de la tabla `suscripcion`
 --
 ALTER TABLE `suscripcion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

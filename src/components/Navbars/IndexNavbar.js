@@ -33,7 +33,7 @@ function IndexNavbar() {
 	const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
 	const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 	const [modal, setModal] = React.useState(false);
-	const [correo, setCorreo] = React.useState('');
+	const [correo, setCorreo] = React.useState({});
 	const [resp, setResp] = React.useState('');
 
 	const toggleModal = () => {
@@ -41,11 +41,14 @@ function IndexNavbar() {
 	};
 
 	const modalChange = (e) => {
-		setCorreo(e.target.value)
+		setCorreo({
+			...correo,
+			[e.target.name]: e.target.value
+		})
 	}
 
 	const ejecutaSuscripcion = async () => {
-		await fetch(`http://localhost:4000/suscripcion?correo=${correo}`, {
+		await fetch(`http://localhost:4000/suscripcion?correo=${correo.correo}&tema=${correo.tema}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
@@ -114,7 +117,16 @@ function IndexNavbar() {
 						</h5>
 					</div>
 					<div className="modal-body">
-						<Input placeholder="Correo Electrónico" type="email" name='correo' onChange={modalChange} />
+						<Input placeholder="Correo Electrónico" type="email" name='correo' onChange={modalChange.bind()} />
+						<div className="divider" style={{ height: 10 }} />
+						¿Qué tema te interesa?
+						<div className="divider" style={{ height: 10 }} />
+						<Input type="select" name='tema' onChange={modalChange.bind()}>
+							<option value='psicologia'>Psicología</option>
+							<option value='curiosidades'>Curiosidades</option>
+							<option value='estilo de vida'>Estilo de Vida</option>
+							<option value='todos'>Todos</option>
+						</Input>
 					</div>
 					<div className="modal-footer">
 						<div className="left-side">

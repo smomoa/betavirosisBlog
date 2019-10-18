@@ -53,7 +53,7 @@ function SectionButtons() {
 						image={imagen1}
 						title={titulo1}
 					/>
-					<CardContent>
+					<CardContent title={titulo1}>
 						<Typography gutterBottom variant="h5" component="h2">
 							{titulo1}
 						</Typography>
@@ -82,7 +82,7 @@ function SectionButtons() {
 						image={imagen2}
 						title={titulo2}
 					/>
-					<CardContent>
+					<CardContent title={titulo2}>
 						<Typography gutterBottom variant="h5" component="h2">
 							{titulo2}
 						</Typography>
@@ -111,7 +111,7 @@ function SectionButtons() {
 						image={imagen3}
 						title={titulo3}
 					/>
-					<CardContent>
+					<CardContent title={titulo3}>
 						<Typography gutterBottom variant="h5" component="h2">
 							{titulo3}
 						</Typography>
@@ -140,7 +140,7 @@ function SectionButtons() {
 						image={imagen4}
 						title={titulo4}
 					/>
-					<CardContent>
+					<CardContent title={titulo4}>
 						<Typography gutterBottom variant="h5" component="h2">
 							{titulo4}
 						</Typography>

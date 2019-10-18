@@ -174,7 +174,7 @@ function PostPage() {
 				<div className="section text-center">
 					<Container>
 						<Row>
-							<Col className="ml-auto mr-auto" md="14">
+							<Col className="ml-auto mr-auto" md="10">
 								<h1 className="title">{infoPost.titulo}</h1>
 								<h4 className="description" align='justify'>{infoPost.cuerpo}</h4>
 								<br />
