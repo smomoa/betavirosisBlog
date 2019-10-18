@@ -35,7 +35,6 @@ function IndexNavbar() {
 	const [modal, setModal] = React.useState(false);
 	const [correo, setCorreo] = React.useState('');
 	const [resp, setResp] = React.useState('');
-	const [respPost, setRespPost] = React.useState({});
 
 	const toggleModal = () => {
 		setModal(!modal);
@@ -64,27 +63,12 @@ function IndexNavbar() {
 		console.log(resp)
 	}
 
-	const didMount = async () => {
-		await fetch(`http://localhost:4000/post`, {
-			method: 'GET',
-			headers: {
-				"content-type": "application/json"
-			}
-		}).then(respuesta => {
-			return respuesta.json()
-		}).then(json => {
-			setRespPost(json.respuesta)
-		})
-		console.log(respPost)
-	}
-
 	const toggleNavbarCollapse = () => {
 		setNavbarCollapse(!navbarCollapse);
 		document.documentElement.classList.toggle("nav-open");
 	};
 
 	React.useEffect(() => {
-		didMount()
 		const updateNavbarColor = () => {
 
 			if (
@@ -108,7 +92,7 @@ function IndexNavbar() {
 	}, []);
 
 	return (
-		<Navbar className={classnames("fixed-top", navbarColor)} expand="lg" onLoad={didMount}>
+		<Navbar className={classnames("fixed-top", navbarColor)} expand="lg">
 			<Container>
 				<Alert stack={true} timeout={3500} />
 				<Modal isOpen={modal} toggle={toggleModal}>

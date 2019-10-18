@@ -20,7 +20,6 @@ function SectionButtons() {
 	var titulo2
 	var titulo3
 	var titulo4
-	var autor1
 	var fecha1
 	var fecha2
 	var fecha3
@@ -177,11 +176,10 @@ function SectionButtons() {
 	}, []);
 
 	return (
-		<>{respPost.map(function (post, index) {
+		<>{respPost.map((post, index) =>{
 			if (index === 0) {
 				imagen1 = post.imagen
 				titulo1 = post.titulo
-				autor1 = post.autor
 				fecha1 = post.fecha
 				categoria1 = post.categoria
 				id1 = post.id_post

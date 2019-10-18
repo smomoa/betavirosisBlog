@@ -9,10 +9,10 @@ import "assets/scss/paper-kit.scss";
 import "assets/demo/demo.css";
 // pages
 import Index from "views/Index.js";
-import NucleoIcons from "views/NucleoIcons.js";
-import ProfilePage from "views/examples/ProfilePage.js";
-import RegisterPage from "views/examples/RegisterPage.js";
-import PostPage from 'views/examples/postPage';
+import NucleoIcons from "./views/NucleoIcons.js";
+import ProfilePage from "./views/examples/ProfilePage.js";
+import RegisterPage from "./views/examples/RegisterPage.js";
+import PostPage from './views/examples/postPage';
 // others
 
 ReactDOM.render(

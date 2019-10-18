@@ -11,16 +11,41 @@ import {
 	Col
 } from "reactstrap";
 
-import IndexNavbar from "components/Navbars/IndexNavbar.js";
-import DemoFooter from "components/Footers/DemoFooter.js";
-import Comentarios from './Comentarios'
+import IndexNavbar from "../../components/Navbars/IndexNavbar";
+import DemoFooter from "../../components/Footers/DemoFooter.js";
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Paper from '@material-ui/core/Paper';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import Avatar from '@material-ui/core/Avatar';
+import Imagen from '../../assets/img/avatar1.jpg'
 
 function PostPage() {
 	const [infoPost, setInfoPost] = React.useState({});
+	const [comentarioPost, setComentarioPost] = React.useState([]);
+	const [comentar, setComentar] = React.useState({})
 	var id_post
 
 	const recibirId = () => {
 		id_post = window.location.search.split('=')[1];
+		consultarPost()
+		consultarComentarios(id_post)
+	}
+
+	const consultarComentarios = async (id) => {
+		await fetch(`http://localhost:4000/comentarios?id_post=${id}`, {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
+			}
+		}).then(respuesta => {
+			return respuesta.json()
+		}).then(json => {
+			setComentarioPost(json.respuesta)
+		})
 	}
 
 	const consultarPost = async () => {
@@ -36,10 +61,31 @@ function PostPage() {
 		})
 	}
 
+	const Comentar = async () => {
+		await fetch(`http://localhost:4000/comentar?nombre=${comentar.nombre}&mensaje=${comentar.mensaje}&id_post=${comentar.id_post}`, {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
+			}
+		}).then(respuesta => {
+			return respuesta.json()
+		}).then(json => {
+
+		})
+		consultarComentarios(comentar.id_post)
+	}
+
+	const comentarOnChange = (e) => {
+		setComentar({
+			...comentar,
+			id_post: window.location.search.split('=')[1],
+			[e.target.name]: e.target.value
+		})
+	}
+
 	document.documentElement.classList.remove("nav-open");
 	React.useEffect(() => {
 		recibirId()
-		consultarPost()
 		document.body.classList.add("profile-page");
 		return function cleanup() {
 			document.body.classList.remove("profile-page");
@@ -86,6 +132,40 @@ function PostPage() {
 		);
 	}
 
+	const useStyles = makeStyles(theme => ({
+		paper: {
+			paddingBottom: 50,
+			width: '100%'
+		},
+		list: {
+			marginBottom: theme.spacing(2),
+		},
+	}));
+
+	const Comentarios = () => {
+		const classes = useStyles();
+
+		return (
+			<React.Fragment>
+				<CssBaseline />
+				<Paper square className={classes.paper}>
+					<List className={classes.list}>
+						{comentarioPost.map(({ id_comentario, nombre, mensaje }) => (
+							<React.Fragment key={id_comentario}>
+								<ListItem button>
+									<ListItemAvatar>
+										<Avatar alt="Profile Picture" src={Imagen} />
+									</ListItemAvatar>
+									<ListItemText primary={nombre} secondary={mensaje} />
+								</ListItem>
+							</React.Fragment>
+						))}
+					</List>
+				</Paper>
+			</React.Fragment>
+		);
+	}
+
 	return (
 		<>
 			<IndexNavbar />
@@ -109,7 +189,7 @@ function PostPage() {
 						<h2 className="title">Comentarios</h2>
 						<Row>
 							<Col md="12">
-								<Comentarios dato={5}/>
+								<Comentarios />
 							</Col>
 						</Row>
 					</Container>
@@ -129,7 +209,7 @@ function PostPage() {
 														<i className="nc-icon nc-single-02" />
 													</InputGroupText>
 												</InputGroupAddon>
-												<Input placeholder="Nombre" type="text" name='nombre' />
+												<Input placeholder="Nombre" type="text" name='nombre' onChange={comentarOnChange.bind()} />
 											</InputGroup>
 										</Col>
 									</Row>
@@ -139,12 +219,12 @@ function PostPage() {
 										type="textarea"
 										rows="4"
 										name='mensaje'
-									/>
+										onChange={comentarOnChange.bind()} />
 									<Row>
 										<Col className="ml-auto mr-auto" md="4">
-											<Button className="btn-fill" color="danger" size="lg">
+											<Button className="btn-fill" color="danger" size="lg" onClick={() => Comentar()}>
 												Comentar
-                      </Button>
+                      						</Button>
 										</Col>
 									</Row>
 								</Form>

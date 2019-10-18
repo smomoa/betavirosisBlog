@@ -21,7 +21,7 @@ app.get('/suscripcion', (req, res) => {
         database: 'blog'
     });
 
-    connection.query('INSERT INTO suscripcion (correo) VALUES ?', [cuerpo], function(error, result) {
+    connection.query('INSERT INTO suscripcion (correo) VALUES ?', [cuerpo], function (error, result) {
         if (error) {
             throw error;
         } else {
@@ -40,7 +40,7 @@ app.get('/post', (req, res) => {
         database: 'blog'
     });
 
-    connection.query('SELECT * FROM post WHERE id_post > ? ORDER BY id_post DESC LIMIT 4', 0.0, function(error, rows) {
+    connection.query('SELECT * FROM post WHERE id_post > ? ORDER BY id_post DESC LIMIT 4', 0.0, function (error, rows) {
         if (error) {
             throw error;
         } else {
@@ -60,7 +60,7 @@ app.get('/consulta', (req, res) => {
         database: 'blog'
     });
 
-    connection.query('SELECT * FROM post WHERE id_post = ?', id_post, function(error, rows) {
+    connection.query('SELECT * FROM post WHERE id_post = ?', id_post, function (error, rows) {
         if (error) {
             throw error;
         } else {
@@ -80,11 +80,35 @@ app.get('/comentarios', (req, res) => {
         database: 'blog'
     });
 
-    connection.query('SELECT * FROM comentarios WHERE id_post = ?', id_post, function(error, rows) {
+    connection.query('SELECT * FROM comentarios WHERE id_post = ?', id_post, function (error, rows) {
         if (error) {
             throw error;
         } else {
             res.status(200).send({ respuesta: rows })
+        }
+    });
+    connection.end();
+})
+
+app.get('/comentar', (req, res) => {
+    var nombre = req.query.nombre
+    var mensaje = req.query.mensaje
+    var id_post = req.query.id_post
+    var cuerpo = [
+        [nombre, mensaje, id_post]
+    ]
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'blog'
+    });
+
+    connection.query('INSERT INTO comentarios (nombre, mensaje, id_post) VALUES ?', [cuerpo], function (error, result) {
+        if (error) {
+            throw error;
+        } else {
+            res.status(200).send({respuesta: 'Has hecho un comentario!'})
         }
     });
     connection.end();
