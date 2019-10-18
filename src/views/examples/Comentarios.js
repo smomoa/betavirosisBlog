@@ -61,15 +61,12 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-export default function Comentarios(props) {
+export default function Comentarios() {
 	const [comentarioPost, setComentarioPost] = React.useState([]);
 	const classes = useStyles();
 	var id_post
 
 	React.useEffect(() => {
-		console.log(window.location)
-		alert(props.dato)
-		consultarComentarios()
 		recibirId()
 	}, []);
 
@@ -88,6 +85,7 @@ export default function Comentarios(props) {
 
 	const recibirId = () => {
 		id_post = window.location.search.split('=')[1];
+		consultarComentarios()
 	}
 
 	return (
