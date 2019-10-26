@@ -33,6 +33,7 @@ function PostPage() {
 		id_post = window.location.search.split('=')[1];
 		consultarPost()
 		consultarComentarios(id_post)
+		guardarVisita(id_post)
 	}
 
 	const consultarComentarios = async (id) => {
@@ -83,6 +84,19 @@ function PostPage() {
 		})
 	}
 
+	const guardarVisita = async (id_post) => {
+		await fetch(`http://localhost:4000/visitar?id_post=${id_post}`, {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
+			}
+		}).then(respuesta => {
+			return respuesta.json()
+		}).then(json => {
+			
+		})
+	}
+
 	document.documentElement.classList.remove("nav-open");
 	React.useEffect(() => {
 		recibirId()
@@ -91,8 +105,6 @@ function PostPage() {
 			document.body.classList.remove("profile-page");
 		};
 	}, []);
-
-
 
 	const LandingPageHeader = () => {
 		let pageHeader = React.createRef();

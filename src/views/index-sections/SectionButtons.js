@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 
 function SectionButtons() {
 	const [respPost, setRespPost] = React.useState([]);
+	const [totalVisitas, setTotalVisitas] = React.useState([])
 	var imagen1
 	var imagen2
 	var imagen3
@@ -171,8 +172,22 @@ function SectionButtons() {
 		})
 	}
 
+	const consultarTotalVisitas = async () => {
+		await fetch(`http://localhost:4000/total/visitas`, {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
+			}
+		}).then(respuesta => {
+			return respuesta.json()
+		}).then(json => {
+			setTotalVisitas(json.respuesta)
+		})
+	}
+
 	React.useEffect(() => {
 		didMount()
+		consultarTotalVisitas()
 	}, []);
 
 	return (
