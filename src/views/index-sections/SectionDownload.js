@@ -30,7 +30,9 @@ function SectionDownload() {
         <Container className="text-center">
           <Row className="justify-content-md-center">
             <Col className="text-center" lg="8" md="12">
-              <h2>Sígueme en mi redes sociales!</h2>
+              <div className="title">
+                <h2>¡Sígueme en mis redes sociales!</h2>
+              </div>
             </Col>
             <Col className="text-center" lg="8" md="12">
               <Button
@@ -39,7 +41,7 @@ function SectionDownload() {
                 href="#pablo"
                 id="tooltip3373767"
                 onClick={e => e.preventDefault()}
-				title='Tweet!'
+                title='Tweet!'
               >
                 <i className="fa fa-twitter" /> Twitter
               </Button>
@@ -49,7 +51,7 @@ function SectionDownload() {
                 href="#pablo"
                 id="tooltip840791273"
                 onClick={e => e.preventDefault()}
-				title='Instagram'
+                title='Instagram'
               >
                 <i className="fa fa-instagram" /> Instagram
               </Button>
@@ -59,27 +61,27 @@ function SectionDownload() {
                 href="#pablo"
                 id="tooltip68961360"
                 onClick={e => e.preventDefault()}
-				title='Facebook'
+                title='Facebook'
               >
                 <i className="fa fa-facebook-square" /> Facebook
               </Button>
-			  <Button
+              <Button
                 className="linkedin-sharrre btn-round  ml-2"
                 color="danger"
                 href="#pablo"
                 id="tooltip840791273"
                 onClick={e => e.preventDefault()}
-				title='Pinterest'
+                title='Pinterest'
               >
                 <i className="fa fa-pinterest" /> Pinterest
               </Button>
-			  <Button
+              <Button
                 className="linkedin-sharrre btn-round  ml-2"
                 color="info"
                 href="#pablo"
                 id="tooltip840791273"
                 onClick={e => e.preventDefault()}
-				title='Linkedin'
+                title='Linkedin'
               >
                 <i className="fa fa-linkedin" /> Linkedin
               </Button>

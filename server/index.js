@@ -156,4 +156,27 @@ app.get('/visitar', (req, res) => {
     connection.end();
 })
 
+app.get('/mensaje', (req, res) => {
+    var nombre = req.query.nombre
+    var mensaje = req.query.mensaje
+    var cuerpo = [
+        [nombre, mensaje]
+    ]
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'blog'
+    });
+
+    connection.query('INSERT INTO mensajes (nombre, mensaje) VALUES ?', [cuerpo], function(error, result) {
+        if (error) {
+            throw error;
+        } else {
+            res.status(200).send({ respuesta: 'Mensaje enviado' })
+        }
+    });
+    connection.end();
+})
+
 app.listen(4000, () => console.log('Servidor esta activo en puerto 4000 xD'));

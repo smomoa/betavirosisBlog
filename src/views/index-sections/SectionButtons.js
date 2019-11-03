@@ -12,7 +12,6 @@ import Typography from '@material-ui/core/Typography';
 
 function SectionButtons() {
 	const [respPost, setRespPost] = React.useState([]);
-	const [totalVisitas, setTotalVisitas] = React.useState([])
 	var imagen1
 	var imagen2
 	var imagen3
@@ -172,26 +171,12 @@ function SectionButtons() {
 		})
 	}
 
-	const consultarTotalVisitas = async () => {
-		await fetch(`http://localhost:4000/total/visitas`, {
-			method: 'GET',
-			headers: {
-				"content-type": "application/json"
-			}
-		}).then(respuesta => {
-			return respuesta.json()
-		}).then(json => {
-			setTotalVisitas(json.respuesta)
-		})
-	}
-
 	React.useEffect(() => {
 		didMount()
-		consultarTotalVisitas()
 	}, []);
 
 	return (
-		<>{respPost.map((post, index) =>{
+		<>{respPost.map((post, index) => {
 			if (index === 0) {
 				imagen1 = post.imagen
 				titulo1 = post.titulo
@@ -220,6 +205,9 @@ function SectionButtons() {
 		})}
 			<div className="section section-buttons">
 				<Container>
+					<div className="title">
+						<h2>Últimos post</h2>
+					</div>
 					<Row>
 						<Col xs="12" sm="4" lg="3">
 							<Card1 />

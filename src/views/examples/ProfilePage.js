@@ -1,17 +1,14 @@
 
 import React from "react";
-
-// reactstrap components
 import {
 	Container,
 	Row,
 	Col
 } from "reactstrap";
-
-// core components
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import ProfilePageHeader from "components/Headers/ProfilePageHeader.js";
 import DemoFooter from "components/Footers/DemoFooter.js";
+import SectionDownload from "views/index-sections/SectionDownload.js";
 
 function ProfilePage() {
 
@@ -62,6 +59,7 @@ function ProfilePage() {
 					
 				</Container>
 			</div>
+			<SectionDownload />
 			<DemoFooter />
 		</>
 	);

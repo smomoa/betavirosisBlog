@@ -21,13 +21,25 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import Imagen from '../../assets/img/avatar1.jpg'
+import Imagen from '../../assets/img/avatar1.jpg';
+
+const useStyles = makeStyles(theme => ({
+	paper: {
+		paddingBottom: 50,
+		width: '100%'
+	},
+	list: {
+		marginBottom: theme.spacing(2),
+	}
+}));
 
 function PostPage() {
 	const [infoPost, setInfoPost] = React.useState({});
 	const [comentarioPost, setComentarioPost] = React.useState([]);
 	const [comentar, setComentar] = React.useState({})
 	var id_post
+
+	const classes = useStyles();
 
 	const recibirId = () => {
 		id_post = window.location.search.split('=')[1];
@@ -93,7 +105,7 @@ function PostPage() {
 		}).then(respuesta => {
 			return respuesta.json()
 		}).then(json => {
-			
+
 		})
 	}
 
@@ -144,18 +156,8 @@ function PostPage() {
 		);
 	}
 
-	const useStyles = makeStyles(theme => ({
-		paper: {
-			paddingBottom: 50,
-			width: '100%'
-		},
-		list: {
-			marginBottom: theme.spacing(2),
-		},
-	}));
-
 	const Comentarios = () => {
-		const classes = useStyles();
+
 
 		return (
 			<React.Fragment>
@@ -188,7 +190,18 @@ function PostPage() {
 						<Row>
 							<Col className="ml-auto mr-auto" md="10">
 								<h1 className="title">{infoPost.titulo}</h1>
-								<h4 className="description" align='justify'>{infoPost.cuerpo}</h4>
+								{/* <iframe
+									srcdoc={infoPost.cuerpo}
+									style={{
+										border: 'none',
+										width: '100%',
+										height: '100%',
+										fontFamily: 'Montserrat'
+									}}
+								/> */}
+								<blockquote>
+									<h5 align='justify'>{infoPost.cuerpo}</h5>
+								</blockquote>
 								<br />
 							</Col>
 						</Row>

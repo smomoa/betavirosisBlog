@@ -1,8 +1,6 @@
 
 import React from "react";
-// nodejs library that concatenates strings
 import classnames from "classnames";
-// reactstrap components
 import {
 	Button,
 	Collapse,
@@ -30,19 +28,32 @@ import 'react-s-alert/dist/s-alert-css-effects/genie.css';
 import 'react-s-alert/dist/s-alert-css-effects/bouncyflip.css';
 
 function IndexNavbar() {
-	const [navbarColor, setNavbarColor] = React.useState("navbar-transparent");
-	const [navbarCollapse, setNavbarCollapse] = React.useState(false);
-	const [modal, setModal] = React.useState(false);
-	const [correo, setCorreo] = React.useState({});
-	const [resp, setResp] = React.useState('');
+	const [navbarColor, setNavbarColor] = React.useState("navbar-transparent")
+	const [navbarCollapse, setNavbarCollapse] = React.useState(false)
+	const [modal, setModal] = React.useState(false)
+	const [correo, setCorreo] = React.useState({})
+	const [resp, setResp] = React.useState('')
+	const [modalMensaje, setModalMensaje] = React.useState(false)
+	const [mensaje, setMensaje] = React.useState({})
 
 	const toggleModal = () => {
 		setModal(!modal);
-	};
+	}
+
+	const toggleMensaje = () => {
+		setModalMensaje(!modalMensaje)
+	}
 
 	const modalChange = (e) => {
 		setCorreo({
 			...correo,
+			[e.target.name]: e.target.value
+		})
+	}
+
+	const mensajeChange = (e) => {
+		setMensaje({
+			...mensaje,
 			[e.target.name]: e.target.value
 		})
 	}
@@ -70,6 +81,22 @@ function IndexNavbar() {
 		setNavbarCollapse(!navbarCollapse);
 		document.documentElement.classList.toggle("nav-open");
 	};
+
+	const ejecutaMensaje = async () => {
+		await fetch(`http://localhost:4000/mensaje?nombre=${mensaje.nombre}&mensaje=${mensaje.mensaje}`, {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
+			}
+		}).then(() => {
+
+		});
+		Alert.success('Mensaje enviado', {
+			position: 'top-right',
+			effect: 'stackslide'
+		})
+		setModalMensaje(!modalMensaje)
+	}
 
 	React.useEffect(() => {
 		const updateNavbarColor = () => {
@@ -147,13 +174,63 @@ function IndexNavbar() {
 						</div>
 					</div>
 				</Modal>
+				<Modal isOpen={modalMensaje} toggle={toggleMensaje}>
+					<div className="modal-header" style={{ background: '#EE4B28' }}>
+						<button
+							aria-label="Close"
+							className="close"
+							type="button"
+							onClick={toggleMensaje}
+						>
+							<span aria-hidden={true}>×</span>
+						</button>
+						<h5
+							className="modal-title text-center"
+							id="exampleModalLabel"
+							style={{ color: 'white' }}
+						>
+							<strong>CONTACTO</strong>
+						</h5>
+					</div>
+					<div className="modal-body">
+						<Input placeholder="Tu nombre aquí" type="text" name='nombre' onChange={mensajeChange.bind()} />
+						<div className="divider" style={{ height: 10 }} />
+						Mensaje
+						<div className="divider" style={{ height: 10 }} />
+						<Input
+							type="textarea"
+							row={5}
+							name='mensaje'
+							onChange={mensajeChange.bind()}
+							placeholder='¿En qué te puedo ayudar?'
+						/>
+					</div>
+					<div className="modal-footer">
+						<div className="left-side">
+							<Button
+								className="btn-link"
+								color="default"
+								type="button"
+								onClick={toggleMensaje}
+							>
+								Cerrar
+                    </Button>
+						</div>
+						<div className="divider" />
+						<div className="right-side">
+							<Button className="btn-link" onClick={ejecutaMensaje} color="danger" type="button">
+								Enviar
+                    </Button>
+						</div>
+					</div>
+				</Modal>
 				<div className="navbar-translate">
 					<NavbarBrand
 						data-placement="bottom"
 						href="/index"
 						title="Inicio"
 					>
-						Betavirosis BLOG
+						INICIO
           </NavbarBrand>
 					<button
 						aria-expanded={navbarCollapse}
@@ -230,8 +307,9 @@ function IndexNavbar() {
 						<NavItem>
 							<NavLink
 								data-placement="bottom"
-								href="/index"
+								onClick={toggleMensaje}
 								title="Contacto"
+								style={{ cursor: 'pointer' }}
 							>
 								CONTACTO
 							</NavLink>
