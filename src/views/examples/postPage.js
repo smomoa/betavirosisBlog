@@ -70,7 +70,7 @@ function PostPage() {
 		}).then(respuesta => {
 			return respuesta.json()
 		}).then(json => {
-			setInfoPost(json.respuesta[0])
+			setInfoPost(json.respuesta)
 		})
 	}
 
@@ -157,8 +157,6 @@ function PostPage() {
 	}
 
 	const Comentarios = () => {
-
-
 		return (
 			<React.Fragment>
 				<CssBaseline />

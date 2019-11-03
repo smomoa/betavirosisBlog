@@ -65,7 +65,7 @@ app.get('/consulta', (req, res) => {
         if (error) {
             throw error;
         } else {
-            res.status(200).send({ respuesta: rows })
+            res.status(200).send({ respuesta: rows[0] })
         }
     });
     connection.end();

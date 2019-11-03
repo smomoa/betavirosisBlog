@@ -3,21 +3,22 @@ import { Container, Row } from "reactstrap";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import consumeWS from './WebService'
 
-const images = [
-	{
-		url: 'https://i.imgur.com/PMAoNUb.jpg',
-		title: 'Nuestro Sol'
-	},
-	{
-		url: 'https://i.imgur.com/ThDvbgv.jpg',
-		title: 'Lasaña'
-	},
-	{
-		url: 'https://i.imgur.com/eI0yeJg.jpg',
-		title: 'Cometa'
-	}
-];
+// const images = [
+// 	{
+// 		url: 'https://i.imgur.com/PMAoNUb.jpg',
+// 		title: 'Nuestro Sol'
+// 	},
+// 	{
+// 		url: 'https://i.imgur.com/ThDvbgv.jpg',
+// 		title: 'Lasaña'
+// 	},
+// 	{
+// 		url: 'https://i.imgur.com/eI0yeJg.jpg',
+// 		title: 'Cometa'
+// 	}
+// ];
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -94,7 +95,8 @@ const useStyles = makeStyles(theme => ({
 
 function SectionNavbars() {
 	const [totalVisitas, setTotalVisitas] = React.useState([])
-	const [post, setPost] = React.useState([]);
+	const [images, setImages] = React.useState([]);
+	var tendencia = []
 	const classes = useStyles();
 
 	const consultarTotalVisitas = async () => {
@@ -114,18 +116,11 @@ function SectionNavbars() {
 
 	}
 
-	const consultarIds = async (id_post) => {
-		await fetch(`http://localhost:4000/consulta?id_post=${id_post}`, {
-			method: 'GET',
-			headers: {
-				"content-type": "application/json"
-			}
-		}).then(respuesta => {
-			return respuesta.json()
-		}).then(json => {
-			console.log([...post, json.respuesta[0]])
-		})
-
+	const consultarIds = (id_post) => {
+		consumeWS('GET', `consulta`, '', `?id_post=${id_post}`)
+			.then(result => {
+				tendencia = ([images.push(result.respuesta)])
+			})
 	}
 
 	React.useEffect(() => {
@@ -145,13 +140,13 @@ function SectionNavbars() {
 							{images.map(image => (
 								<ButtonBase
 									focusRipple
-									key={image.title}
+									key={image.id_post}
 									className={classes.image}
 									focusVisibleClassName={classes.focusVisible}
 									style={{ width: '33%' }}>
 									<span
 										className={classes.imageSrc}
-										style={{ backgroundImage: `url(${image.url})` }} />
+										style={{ backgroundImage: "url(" + image.imagen + ")" }} />
 									<span className={classes.imageBackdrop} />
 									<span className={classes.imageButton}>
 										<Typography
@@ -160,7 +155,7 @@ function SectionNavbars() {
 											color="inherit"
 											className={classes.imageTitle}
 										>
-											{image.title}
+											{image.titulo}
 											<span className={classes.imageMarked} />
 										</Typography>
 									</span>
