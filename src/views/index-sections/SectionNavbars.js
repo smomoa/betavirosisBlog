@@ -94,6 +94,7 @@ const useStyles = makeStyles(theme => ({
 
 function SectionNavbars() {
 	const [totalVisitas, setTotalVisitas] = React.useState([])
+	const [post, setPost] = React.useState([]);
 	const classes = useStyles();
 
 	const consultarTotalVisitas = async () => {
@@ -105,17 +106,27 @@ function SectionNavbars() {
 		}).then(respuesta => {
 			return respuesta.json()
 		}).then(json => {
-			consultarIds(json.respuesta)
+			for (let i = 0; i < json.respuesta.length; i++) {
+				consultarIds(json.respuesta[i].id_post)
+			}
 			setTotalVisitas(json.respuesta)
 		});
-		
+
 	}
 
-	const consultarIds = (visitas) => {
-			for (let i = 0; i < visitas.length; i++) {
-				console.log(visitas[i].id_post)
+	const consultarIds = async (id_post) => {
+		await fetch(`http://localhost:4000/consulta?id_post=${id_post}`, {
+			method: 'GET',
+			headers: {
+				"content-type": "application/json"
 			}
-		}
+		}).then(respuesta => {
+			return respuesta.json()
+		}).then(json => {
+			console.log([...post, json.respuesta[0]])
+		})
+
+	}
 
 	React.useEffect(() => {
 		consultarTotalVisitas()
