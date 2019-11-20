@@ -119,8 +119,9 @@ function SectionNavbars() {
 	const consultarIds = (id_post) => {
 		consumeWS('GET', `consulta`, '', `?id_post=${id_post}`)
 			.then(result => {
-				tendencia = ([images.push(result.respuesta)])
+				tendencia.push(result.respuesta)
 			})
+			setImages(tendencia)
 	}
 
 	React.useEffect(() => {
