@@ -19,7 +19,7 @@
 import React from "react";
 
 // reactstrap components
-import { Button, Container, Row, Col, UncontrolledTooltip } from "reactstrap";
+import { Button, Container, Row, Col } from "reactstrap";
 
 // core components
 
@@ -31,7 +31,7 @@ function SectionDownload() {
           <Row className="justify-content-md-center">
             <Col className="text-center" lg="8" md="12">
               <div className="title">
-                <h2>¡Sígueme en mis redes sociales!</h2>
+                <h2>¡Mantengamonos en contacto!</h2>
               </div>
             </Col>
             <Col className="text-center" lg="8" md="12">

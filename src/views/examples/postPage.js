@@ -118,6 +118,8 @@ function PostPage() {
 		};
 	}, []);
 
+	React.useEffect(recibirId, []);
+
 	const LandingPageHeader = () => {
 		let pageHeader = React.createRef();
 

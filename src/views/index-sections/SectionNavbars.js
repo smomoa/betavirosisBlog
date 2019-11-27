@@ -3,22 +3,11 @@ import { Container, Row } from "reactstrap";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
-import consumeWS from './WebService'
-
-// const images = [
-// 	{
-// 		url: 'https://i.imgur.com/PMAoNUb.jpg',
-// 		title: 'Nuestro Sol'
-// 	},
-// 	{
-// 		url: 'https://i.imgur.com/ThDvbgv.jpg',
-// 		title: 'Lasaña'
-// 	},
-// 	{
-// 		url: 'https://i.imgur.com/eI0yeJg.jpg',
-// 		title: 'Cometa'
-// 	}
-// ];
+import consumeWS from './WebService';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -96,6 +85,7 @@ const useStyles = makeStyles(theme => ({
 function SectionNavbars() {
 	const [totalVisitas, setTotalVisitas] = React.useState([])
 	const [images, setImages] = React.useState([]);
+	const [aviso, setAviso] = React.useState(false);
 	var tendencia = []
 	const classes = useStyles();
 
@@ -112,6 +102,8 @@ function SectionNavbars() {
 				consultarIds(json.respuesta[i].id_post)
 			}
 			setTotalVisitas(json.respuesta)
+			setAviso(true)
+			console.log(totalVisitas)
 		});
 
 	}
@@ -121,12 +113,14 @@ function SectionNavbars() {
 			.then(result => {
 				tendencia.push(result.respuesta)
 			})
-			setImages(tendencia)
+		setImages(tendencia)
 	}
 
-	React.useEffect(() => {
-		consultarTotalVisitas()
-	}, []);
+	const handleCloseMensaje = () => {
+		setAviso(false)
+	};
+
+	React.useEffect(consultarTotalVisitas, []);
 
 	return (
 		<>
@@ -136,12 +130,37 @@ function SectionNavbars() {
 						<h2>Lo más visto</h2>
 					</div>
 					<br />
+					<Snackbar
+						anchorOrigin={{
+							vertical: 'bottom',
+							horizontal: 'left',
+						}}
+						open={aviso}
+						autoHideDuration={1000}
+						onClose={handleCloseMensaje}
+						style={{ opacity: '0.8' }}
+						ContentProps={{
+							'aria-describedby': 'message-id',
+						}}
+						message={<Typography id="message-id" variant='button'>Cargando... {<LinearProgress color="primary" style={{ width: '100%', marginBottom: 0 }} />}</Typography>}
+						action={[
+							<IconButton
+								key="close"
+								aria-label="close"
+								color="inherit"
+								className={classes.close}
+								onClick={handleCloseMensaje}
+							>
+								<CloseIcon />
+							</IconButton>,
+						]}
+					/>
 					<Row>
 						<div className={classes.root}>
-							{images.map(image => (
+							{images.map((image, index) => (
 								<ButtonBase
 									focusRipple
-									key={image.id_post}
+									key={index}
 									className={classes.image}
 									focusVisibleClassName={classes.focusVisible}
 									style={{ width: '33%' }}>
