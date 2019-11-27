@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2019 a las 01:01:33
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.1.32
+-- Tiempo de generación: 27-11-2019 a las 02:08:50
+-- Versión del servidor: 10.3.16-MariaDB
+-- Versión de PHP: 7.1.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,14 +45,27 @@ INSERT INTO `comentarios` (`id_comentario`, `nombre`, `mensaje`, `id_post`) VALU
 (3, 'Samuel Bustamante', 'Muy buen post, me encanta', '1'),
 (4, 'Samuel Bustamante', 'Me agrada la manera en que defines esto, eres increible', '1'),
 (5, 'Samuel Bustamante', 'la foto esta fea', '4'),
-(6, 'Samuel Bustamante', 'me encanta esta publicación, esta increíble', '2'),
-(8, 'Samuel Bustamante', 'He estado buscando información sobre cometas y Wow! es muy nutritivo leerte', '2'),
-(9, 'Jason Momoa', 'He estado buscando información sobre cometas y Wow! es muy nutritivo leerte', '2'),
-(10, 'Joker', 'He estado buscando informac', '2'),
-(11, 'Aquaman', 'He estado buscando informac', '2'),
-(12, 'Mujer Maravilla', 'Muy bien redactado, me has sorprendido', '2'),
-(13, 'enmanuel bustamante', 'Muy bien redactado, me has sorprendido', '2'),
-(14, 'Jason Momoa', 'Muy bien redactado, me has sorprendido', '2');
+(15, 'Jason Momoa', 'Habia estado buscando información sobre cometas y wow! estoy impresionado por toda esta información tan detallada. Eres la mejor.', '2'),
+(16, 'Rizada', 'No me gustan las galaxias', '4');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `mensajes`
+--
+
+CREATE TABLE `mensajes` (
+  `id_mensajes` int(11) NOT NULL,
+  `nombre` varchar(1000) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `mensaje` varchar(1000) COLLATE utf8mb4_unicode_520_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `mensajes`
+--
+
+INSERT INTO `mensajes` (`id_mensajes`, `nombre`, `mensaje`) VALUES
+(1, 'Samuel Bustamante', 'me gustaria chuparte los senos');
 
 -- --------------------------------------------------------
 
@@ -100,6 +113,115 @@ CREATE TABLE `suscripcion` (
 INSERT INTO `suscripcion` (`id`, `correo`, `tema`) VALUES
 (1, 'samueldhljdm@gmail.com', 'curiosidades');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `visitas`
+--
+
+CREATE TABLE `visitas` (
+  `id_visita` int(11) NOT NULL,
+  `id_post` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Volcado de datos para la tabla `visitas`
+--
+
+INSERT INTO `visitas` (`id_visita`, `id_post`) VALUES
+(0, 2),
+(1, 3),
+(2, 2),
+(3, 2),
+(4, 2),
+(5, 4),
+(6, 4),
+(7, 3),
+(8, 2),
+(9, 3),
+(10, 3),
+(11, 3),
+(12, 3),
+(13, 3),
+(14, 3),
+(15, 2),
+(16, 2),
+(17, 2),
+(18, 2),
+(19, 2),
+(20, 2),
+(21, 2),
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2),
+(26, 2),
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 2),
+(31, 2),
+(32, 2),
+(33, 2),
+(34, 2),
+(35, 2),
+(36, 2),
+(37, 2),
+(38, 2),
+(39, 2),
+(40, 2),
+(41, 2),
+(42, 2),
+(43, 2),
+(44, 2),
+(45, 2),
+(46, 2),
+(47, 2),
+(48, 2),
+(49, 2),
+(50, 2),
+(51, 2),
+(52, 2),
+(53, 2),
+(54, 2),
+(55, 2),
+(56, 2),
+(57, 2),
+(58, 2),
+(59, 2),
+(60, 2),
+(61, 2),
+(62, 2),
+(63, 2),
+(64, 2),
+(65, 2),
+(66, 2),
+(67, 2),
+(68, 2),
+(69, 2),
+(70, 2),
+(71, 2),
+(72, 2),
+(73, 2),
+(74, 2),
+(75, 2),
+(76, 2),
+(77, 2),
+(78, 2),
+(79, 2),
+(80, 2),
+(81, 2),
+(82, 2),
+(83, 2),
+(84, 2),
+(85, 2),
+(86, 4),
+(87, 4),
+(88, 2),
+(89, 4),
+(90, 4),
+(91, 4);
+
 --
 -- Índices para tablas volcadas
 --
@@ -109,6 +231,12 @@ INSERT INTO `suscripcion` (`id`, `correo`, `tema`) VALUES
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id_comentario`);
+
+--
+-- Indices de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  ADD PRIMARY KEY (`id_mensajes`);
 
 --
 -- Indices de la tabla `post`
@@ -123,6 +251,12 @@ ALTER TABLE `suscripcion`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `visitas`
+--
+ALTER TABLE `visitas`
+  ADD PRIMARY KEY (`id_visita`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -130,7 +264,13 @@ ALTER TABLE `suscripcion`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de la tabla `mensajes`
+--
+ALTER TABLE `mensajes`
+  MODIFY `id_mensajes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `post`
@@ -143,6 +283,12 @@ ALTER TABLE `post`
 --
 ALTER TABLE `suscripcion`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de la tabla `visitas`
+--
+ALTER TABLE `visitas`
+  MODIFY `id_visita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
