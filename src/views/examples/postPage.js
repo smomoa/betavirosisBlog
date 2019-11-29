@@ -11,7 +11,7 @@ import {
 	Col
 } from "reactstrap";
 
-import IndexNavbar from "../../components/Navbars/Navbar";
+import IndexNavbar from "../../components/Navbars/IndexNavbar";
 import DemoFooter from "../../components/Footers/DemoFooter.js";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -166,16 +166,16 @@ function PostPage() {
 					<List className={classes.list}>
 						{comentarioPost.length ?
 							comentarioPost.map(({ id_comentario, nombre, mensaje }) => (
-								<React.Fragment key={id_comentario}>
-									<ListItem button>
-										<ListItemAvatar>
-											<Avatar alt="Profile Picture" src={Imagen} />
-										</ListItemAvatar>
-										<ListItemText primary={nombre} secondary={mensaje} />
-									</ListItem>
-								</React.Fragment>
-							))
-							:
+							<React.Fragment key={id_comentario}>
+								<ListItem button>
+									<ListItemAvatar>
+										<Avatar alt="Profile Picture" src={Imagen} />
+									</ListItemAvatar>
+									<ListItemText primary={nombre} secondary={mensaje} />
+								</ListItem>
+							</React.Fragment>
+						))
+					:
 							<React.Fragment>
 								<ListItem >
 									<ListItemText primary='Este post aún no tiene comentarios' />

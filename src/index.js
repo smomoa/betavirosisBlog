@@ -18,24 +18,28 @@ import PostPage from './views/examples/postPage';
 ReactDOM.render(
 	<BrowserRouter>
 		<Switch>
-			<Route path="/" render={props => <Index {...props} />} />
+			<Route path="/inicio" render={props => <Index {...props} />} />
 			<Route
 				path="/nucleo-icons"
+				exact
 				render={props => <NucleoIcons {...props} />}
 			/>
 			<Route
 				path="/quien-escribe"
+				exact
 				render={props => <ProfilePage {...props} />}
 			/>
 			<Route
 				path="/post"
+				exact
 				render={props => <PostPage {...props} />}
 			/>
 			<Route
 				path="/register-page"
+				exact
 				render={props => <RegisterPage {...props} />}
 			/>
-			<Redirect to="/" />
+			<Redirect to="/inicio" />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById("root")
