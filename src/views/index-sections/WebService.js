@@ -1,5 +1,5 @@
 export function consumeWS(Metodo, Url, ParametrosPOST, parametrosGET) {
-    let UrlApi = 'http://localhost:4000/'
+    let UrlApi = 'http://191.98.184.214:4000/'
     let peticion = {}
     let url_ws = `${UrlApi}${Url}${parametrosGET}`;
 

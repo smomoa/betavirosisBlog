@@ -159,7 +159,7 @@ function SectionButtons() {
 	}
 
 	const didMount = async () => {
-		await fetch(`http://localhost:4000/post`, {
+		await fetch(`http://191.98.184.214:4000/post`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
