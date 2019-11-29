@@ -59,7 +59,7 @@ function IndexNavbar() {
 	}
 
 	const ejecutaSuscripcion = async () => {
-		await fetch(`http://191.98.184.214:4000/suscripcion?correo=${correo.correo}&tema=${correo.tema}`, {
+		await fetch(`http://localhost:4000/suscripcion?correo=${correo.correo}&tema=${correo.tema}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
@@ -83,7 +83,7 @@ function IndexNavbar() {
 	};
 
 	const ejecutaMensaje = async () => {
-		await fetch(`http://191.98.184.214:4000/mensaje?nombre=${mensaje.nombre}&mensaje=${mensaje.mensaje}`, {
+		await fetch(`http://localhost:4000/mensaje?nombre=${mensaje.nombre}&mensaje=${mensaje.mensaje}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"

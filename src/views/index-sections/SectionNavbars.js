@@ -90,7 +90,7 @@ function SectionNavbars() {
 	const classes = useStyles();
 
 	const consultarTotalVisitas = async () => {
-		await fetch(`http://191.98.184.214:4000/total/visitas`, {
+		await fetch(`http://localhost:4000/total/visitas`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"

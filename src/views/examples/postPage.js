@@ -49,7 +49,7 @@ function PostPage() {
 	}
 
 	const consultarComentarios = async (id) => {
-		await fetch(`http://191.98.184.214:4000/comentarios?id_post=${id}`, {
+		await fetch(`http://localhost:4000/comentarios?id_post=${id}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
@@ -62,7 +62,7 @@ function PostPage() {
 	}
 
 	const consultarPost = async () => {
-		await fetch(`http://191.98.184.214:4000/consulta?id_post=${id_post}`, {
+		await fetch(`http://localhost:4000/consulta?id_post=${id_post}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
@@ -75,7 +75,7 @@ function PostPage() {
 	}
 
 	const Comentar = async () => {
-		await fetch(`http://191.98.184.214:4000/comentar?nombre=${comentar.nombre}&mensaje=${comentar.mensaje}&id_post=${comentar.id_post}`, {
+		await fetch(`http://localhost:4000/comentar?nombre=${comentar.nombre}&mensaje=${comentar.mensaje}&id_post=${comentar.id_post}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
@@ -97,7 +97,7 @@ function PostPage() {
 	}
 
 	const guardarVisita = async (id_post) => {
-		await fetch(`http://191.98.184.214:4000/visitar?id_post=${id_post}`, {
+		await fetch(`http://localhost:4000/visitar?id_post=${id_post}`, {
 			method: 'GET',
 			headers: {
 				"content-type": "application/json"
@@ -164,16 +164,23 @@ function PostPage() {
 				<CssBaseline />
 				<Paper square className={classes.paper}>
 					<List className={classes.list}>
-						{comentarioPost.map(({ id_comentario, nombre, mensaje }) => (
-							<React.Fragment key={id_comentario}>
-								<ListItem button>
-									<ListItemAvatar>
-										<Avatar alt="Profile Picture" src={Imagen} />
-									</ListItemAvatar>
-									<ListItemText primary={nombre} secondary={mensaje} />
+						{comentarioPost.length ?
+							comentarioPost.map(({ id_comentario, nombre, mensaje }) => (
+								<React.Fragment key={id_comentario}>
+									<ListItem button>
+										<ListItemAvatar>
+											<Avatar alt="Profile Picture" src={Imagen} />
+										</ListItemAvatar>
+										<ListItemText primary={nombre} secondary={mensaje} />
+									</ListItem>
+								</React.Fragment>
+							))
+							:
+							<React.Fragment>
+								<ListItem >
+									<ListItemText primary='Este post aún no tiene comentarios' />
 								</ListItem>
-							</React.Fragment>
-						))}
+							</React.Fragment>}
 					</List>
 				</Paper>
 			</React.Fragment>

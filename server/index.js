@@ -124,7 +124,7 @@ app.get('/total/visitas', (req, res) => {
         database: 'blog'
     });
 
-    connection.query('SELECT id_post,Count(id_post) FROM visitas GROUP BY id_post HAVING Count(id_post) ORDER BY Count(id_post) DESC', function(error, rows) {
+    connection.query('SELECT id_post,Count(id_post) FROM visitas GROUP BY id_post HAVING Count(id_post) ORDER BY Count(id_post) DESC LIMIT 3 ', function(error, rows) {
         if (error) {
             throw error;
         } else {
