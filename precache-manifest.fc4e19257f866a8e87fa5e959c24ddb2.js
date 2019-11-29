@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ee4d9254d2448e76b67ecc82f48a1848",
+    "revision": "041fad30ceffcdea62e3fff671fc5d8f",
     "url": "/betavirosisBlog/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/betavirosisBlog/static/css/2.fd6ae0a1.chunk.css"
   },
   {
-    "revision": "734ac0da3a04aac5bf9b",
+    "revision": "557d5f0de3e157417941",
     "url": "/betavirosisBlog/static/css/main.d38ccd20.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/betavirosisBlog/static/js/2.3cb1367b.chunk.js"
   },
   {
-    "revision": "734ac0da3a04aac5bf9b",
-    "url": "/betavirosisBlog/static/js/main.674aeb65.chunk.js"
+    "revision": "557d5f0de3e157417941",
+    "url": "/betavirosisBlog/static/js/main.b2987af2.chunk.js"
   },
   {
     "revision": "568a5f8acd147e7fed21",
