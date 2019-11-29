@@ -18,7 +18,7 @@ import PostPage from './views/examples/postPage';
 ReactDOM.render(
 	<BrowserRouter>
 		<Switch>
-			<Route path="/index" render={props => <Index {...props} />} />
+			<Route path="/" render={props => <Index {...props} />} />
 			<Route
 				path="/nucleo-icons"
 				render={props => <NucleoIcons {...props} />}
@@ -35,7 +35,7 @@ ReactDOM.render(
 				path="/register-page"
 				render={props => <RegisterPage {...props} />}
 			/>
-			<Redirect to="/index" />
+			<Redirect to="/" />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById("root")

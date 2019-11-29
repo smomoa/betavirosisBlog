@@ -227,7 +227,7 @@ function IndexNavbar() {
 				<div className="navbar-translate">
 					<NavbarBrand
 						data-placement="bottom"
-						href="/index"
+						href="/"
 						title="Inicio"
 					>
 						INICIO
@@ -253,7 +253,7 @@ function IndexNavbar() {
 						<NavItem>
 							<NavLink
 								data-placement="bottom"
-								href="/index"
+								href="/"
 								title="Mis Vídeos"
 							>
 								MIS VÍDEOS
@@ -275,7 +275,7 @@ function IndexNavbar() {
 								caret
 								color="default"
 								data-toggle="dropdown"
-								href="/index"
+								href="/"
 								id="dropdownMenuButton"
 								nav
 								onClick={e => e.preventDefault()}
@@ -288,17 +288,17 @@ function IndexNavbar() {
 								className="dropdown-info"
 							>
 								<DropdownItem
-									href="/index"
+									href="/"
 								>
 									PSICOLOGÍA
                         </DropdownItem>
 								<DropdownItem
-									href="/index"
+									href="/"
 								>
 									CURIOSIDADES
                         </DropdownItem>
 								<DropdownItem
-									href="/index"
+									href="/"
 								>
 									ESTILO DE VIDA
                         </DropdownItem>

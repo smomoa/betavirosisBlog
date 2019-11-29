@@ -11,7 +11,7 @@ import {
 	Col
 } from "reactstrap";
 
-import IndexNavbar from "../../components/Navbars/IndexNavbar";
+import IndexNavbar from "../../components/Navbars/Navbar";
 import DemoFooter from "../../components/Footers/DemoFooter.js";
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
