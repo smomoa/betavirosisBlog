@@ -82,7 +82,7 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-function SectionNavbars() {
+function SectionNavbars(props) {
 	const [totalVisitas, setTotalVisitas] = React.useState([])
 	const [images, setImages] = React.useState([]);
 	const [aviso, setAviso] = React.useState(false);
@@ -161,6 +161,7 @@ function SectionNavbars() {
 								<ButtonBase
 									focusRipple
 									key={index}
+									href={`/post?id_post=${image.id_post}`}
 									className={classes.image}
 									focusVisibleClassName={classes.focusVisible}
 									style={{ width: '33%' }}>
