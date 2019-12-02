@@ -47,7 +47,7 @@ function SectionButtons() {
 		const classes = cardStyle();
 
 		return (
-			<BrowserRouter basename='/betavirosisBlog'>
+			<BrowserRouter basename='/#'>
 				<Switch>
 					<Card className={classes.card}>
 						<CardActionArea>
