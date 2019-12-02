@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/betavirosisBlog/precache-manifest.45ef9914096e8563f04d87b8486f5795.js"
+  "/betavirosisBlog/precache-manifest.8c91fa0c9ed0a96faca26cd7720ef9fd.js"
 );
 
 self.addEventListener('message', (event) => {
