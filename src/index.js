@@ -16,7 +16,7 @@ import PostPage from './views/examples/postPage';
 // others
 
 ReactDOM.render(
-	<BrowserRouter basename='/#'>
+	<BrowserRouter basename={path.join('/betavirosisBlog')}>
 		<Switch>
 			<Route path="/inicio" render={props => <Index {...props} />} />
 			<Route
