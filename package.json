@@ -7,6 +7,7 @@
     "@material-ui/icons": "^4.5.1",
     "classnames": "2.2.6",
     "cors": "^2.8.5",
+    "env-cmd": "^10.0.1",
     "express": "^4.17.1",
     "gh-pages": "^2.1.1",
     "moment": "2.24.0",
@@ -36,7 +37,7 @@
     "minify-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.min.css --output-style compressed",
     "map-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.css --source-map true"
   },
-  "homepage": ".",
+  "homepage": "https://smomoa.github.io/betavirosisBlog/",
   "eslintConfig": {
     "extends": "react-app"
   },

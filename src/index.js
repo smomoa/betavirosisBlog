@@ -18,7 +18,7 @@ import PostPage from './views/examples/postPage';
 ReactDOM.render(
 	<BrowserRouter>
 		<Switch>
-			<Route path="/inicio" render={props => <Index {...props} />} />
+			<Route path="/index" render={props => <Index {...props} />} />
 			<Route
 				path="/nucleo-icons"
 				exact
@@ -39,7 +39,7 @@ ReactDOM.render(
 				exact
 				render={props => <RegisterPage {...props} />}
 			/>
-			<Redirect to="/inicio" />
+			<Redirect to="/index" />
 		</Switch>
 	</BrowserRouter>,
 	document.getElementById("root")
