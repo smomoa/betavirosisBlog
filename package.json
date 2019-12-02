@@ -36,7 +36,7 @@
     "minify-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.min.css --output-style compressed",
     "map-sass": "node-sass src/assets/scss/paper-kit.scss src/assets/css/paper-kit.css --source-map true"
   },
-  "homepage": "https://smomoa.github.io/betavirosisBlog/",
+  "homepage": ".",
   "eslintConfig": {
     "extends": "react-app"
   },

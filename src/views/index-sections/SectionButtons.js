@@ -9,7 +9,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { BrowserRouter, Switch } from "react-router-dom";
 
 function SectionButtons() {
 	const [respPost, setRespPost] = React.useState([]);
@@ -47,32 +46,28 @@ function SectionButtons() {
 		const classes = cardStyle();
 
 		return (
-			<BrowserRouter basename={path.join('/betavirosisBlog')}>
-				<Switch>
-					<Card className={classes.card}>
-						<CardActionArea>
-							<CardMedia
-								className={classes.media}
-								image={imagen1}
-								title={titulo1}
-							/>
-							<CardContent title={titulo1}>
-								<Typography gutterBottom variant="h5" component="h2">
-									{titulo1}
-								</Typography>
-								<Typography variant="body2" color="textSecondary" component="p">
-									{categoria1} - {fecha1}
-								</Typography>
-							</CardContent>
-						</CardActionArea>
-						<CardActions>
-							<Button size="small" color="primary" href={`/post?id_post=${id1}`}>
-								Leer más
+			<Card className={classes.card}>
+				<CardActionArea>
+					<CardMedia
+						className={classes.media}
+						image={imagen1}
+						title={titulo1}
+					/>
+					<CardContent title={titulo1}>
+						<Typography gutterBottom variant="h5" component="h2">
+							{titulo1}
+						</Typography>
+						<Typography variant="body2" color="textSecondary" component="p">
+							{categoria1} - {fecha1}
+						</Typography>
+					</CardContent>
+				</CardActionArea>
+				<CardActions>
+					<Button size="small" color="primary" href={`/post?id_post=${id1}`}>
+						Leer más
 			  </Button>
-						</CardActions>
-					</Card>
-				</Switch>
-			</BrowserRouter>
+				</CardActions>
+			</Card>
 		);
 	}
 
