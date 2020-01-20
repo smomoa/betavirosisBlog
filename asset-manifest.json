@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/betavirosisBlog/static/css/main.9feccf96.chunk.css",
-    "main.js": "/betavirosisBlog/static/js/main.7a06a523.chunk.js",
-    "main.js.map": "/betavirosisBlog/static/js/main.7a06a523.chunk.js.map",
+    "main.js": "/betavirosisBlog/static/js/main.5e3c13d1.chunk.js",
+    "main.js.map": "/betavirosisBlog/static/js/main.5e3c13d1.chunk.js.map",
     "runtime~main.js": "/betavirosisBlog/static/js/runtime~main.4253e927.js",
     "runtime~main.js.map": "/betavirosisBlog/static/js/runtime~main.4253e927.js.map",
     "static/css/2.fd6ae0a1.chunk.css": "/betavirosisBlog/static/css/2.fd6ae0a1.chunk.css",
     "static/js/2.3cb1367b.chunk.js": "/betavirosisBlog/static/js/2.3cb1367b.chunk.js",
     "static/js/2.3cb1367b.chunk.js.map": "/betavirosisBlog/static/js/2.3cb1367b.chunk.js.map",
     "index.html": "/betavirosisBlog/index.html",
-    "precache-manifest.66974879fe87cee60fd2d90b4c0882ec.js": "/betavirosisBlog/precache-manifest.66974879fe87cee60fd2d90b4c0882ec.js",
+    "precache-manifest.cbed65eca252167834a0fc713171ca39.js": "/betavirosisBlog/precache-manifest.cbed65eca252167834a0fc713171ca39.js",
     "service-worker.js": "/betavirosisBlog/service-worker.js",
     "static/css/2.fd6ae0a1.chunk.css.map": "/betavirosisBlog/static/css/2.fd6ae0a1.chunk.css.map",
     "static/css/main.9feccf96.chunk.css.map": "/betavirosisBlog/static/css/main.9feccf96.chunk.css.map",
